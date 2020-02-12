@@ -1,6 +1,6 @@
 # vuetify1
 
-> My astonishing Nuxt.js project
+> Demo app with Nuxt, Vuex, and Vuetify. It's gonna be veutiful!
 
 ## Build Setup
 
