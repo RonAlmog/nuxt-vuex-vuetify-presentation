@@ -90,6 +90,11 @@ export default {
           to: "/navbars"
         },
         {
+          icon: "domain",
+          title: "Grid",
+          to: "/grid"
+        },
+        {
           icon: "list",
           title: "Lists",
           to: "/lists"
