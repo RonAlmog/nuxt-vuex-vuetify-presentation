@@ -1,41 +1,53 @@
 <template>
   <v-content>
     <h2>Dashboard</h2>
-    
+
     <v-row class="mb-3">
-        <v-btn small flat color="grey" @click="sortBy('title')">
+      <v-tooltip top>
+        <template v-slot:activator="{ on }">
+          <v-btn small flat color="grey" @click="sortBy('title')" v-on="on">
             <v-icon left small>folder</v-icon>
             <span class="caption lower-case">By project name</span>
-        </v-btn>
-        <v-btn small flat color="grey" @click="sortBy('person')">
+          </v-btn>
+        </template>
+        <span>Sort by project name or something like that</span>
+      </v-tooltip>
+
+      <v-tooltip top>
+        <template v-slot:activator="{ on }">
+          <v-btn small flat color="grey" @click="sortBy('person')" v-on="on">
             <v-icon left small>person</v-icon>
             <span class="caption lower-case">By person</span>
-        </v-btn>
-
+          </v-btn>
+        </template>
+        <span>Sort by person name</span>
+      </v-tooltip>
     </v-row>
-      <v-card flat class v-for="project in projects" :key="project.title">
-        <v-row :class="`pa-3 project ${project.status}`">
-          <v-col cols="12" md="6">
-            <div class="caption grey--text">Project Title</div>
-            <div>{{project.title}}</div>
-          </v-col>
-          <v-col cols="6" sm="4" md="2">
-            <div class="caption grey--text">Person</div>
-            <div>{{project.person}}</div>
-          </v-col>
-          <v-col cols="6" sm="4" md="2">
-            <div class="caption grey--text">Due By</div>
-            <div>{{project.due}}</div>
-          </v-col>
-          <v-col cols="2" sm="4" md="2" class="right">
-            <div>
-                <v-chip small :class="`${project.status} v-chip--active white--text caption my-2`">{{project.status}}</v-chip>
-            </div>
-          </v-col>
-        </v-row>
-        <v-divider></v-divider>
-      </v-card>
-    
+    <v-card flat class v-for="project in projects" :key="project.title">
+      <v-row :class="`pa-3 project ${project.status}`">
+        <v-col cols="12" md="6">
+          <div class="caption grey--text">Project Title</div>
+          <div>{{project.title}}</div>
+        </v-col>
+        <v-col cols="6" sm="4" md="2">
+          <div class="caption grey--text">Person</div>
+          <div>{{project.person}}</div>
+        </v-col>
+        <v-col cols="6" sm="4" md="2">
+          <div class="caption grey--text">Due By</div>
+          <div>{{project.due}}</div>
+        </v-col>
+        <v-col cols="2" sm="4" md="2" class="right">
+          <div>
+            <v-chip
+              small
+              :class="`${project.status} v-chip--active white--text caption my-2`"
+            >{{project.status}}</v-chip>
+          </div>
+        </v-col>
+      </v-row>
+      <v-divider></v-divider>
+    </v-card>
   </v-content>
 </template>
 
@@ -80,9 +92,9 @@ export default {
     };
   },
   methods: {
-      sortBy(prop) {
-          this.projects.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
-      }
+    sortBy(prop) {
+      this.projects.sort((a, b) => (a[prop] < b[prop] ? -1 : 1));
+    }
   }
 };
 </script>
@@ -97,13 +109,13 @@ export default {
 .project.overdue {
   border-left: 6px solid tomato;
 }
-.v-chip.complete{
+.v-chip.complete {
   background: #3cd1c2;
 }
-.v-chip.ongoing{
+.v-chip.ongoing {
   background: #ffaa2c;
 }
-.v-chip.overdue{
+.v-chip.overdue {
   background: #f83e70;
 }
 </style>
