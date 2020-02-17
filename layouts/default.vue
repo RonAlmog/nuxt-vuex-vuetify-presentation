@@ -65,34 +65,54 @@ export default {
           to: "/"
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "storefront",
           title: "Inspire",
           to: "/inspire"
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "cake",
           title: "Text",
           to: "/text"
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "check_box",
           title: "Buttons",
           to: "/buttons"
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "sports",
           title: "Breakpoints",
           to: "/breakpoints"
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "sync_alt",
           title: "Navbars",
           to: "/navbars"
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "list",
+          title: "Lists",
+          to: "/lists"
+        },
+        {
+          icon: "face",
           title: "About",
           to: "/about"
+        },
+        {
+          icon: "dashboard",
+          title: "Dashboard",
+          to: "/dashboard"
+        },
+        {
+          icon: "traffic",
+          title: "Team",
+          to: "/team"
+        },
+        {
+          icon: "my_location",
+          title: "Projects",
+          to: "/projects"
         }
       ],
       miniVariant: false,
