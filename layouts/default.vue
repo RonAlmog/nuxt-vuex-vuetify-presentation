@@ -11,6 +11,14 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+
+      <v-row>
+        <v-col cols="12" class="text-center my-3">
+          <Popup></Popup>
+        </v-col>
+      </v-row>
+      
+
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app dense class="indigo">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
@@ -28,6 +36,23 @@
       <v-btn icon @click.stop="rightDrawer = !rightDrawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
+
+      <v-menu>
+        <template v-slot:activator="{ on }">
+          <v-btn color="primary" dark text v-on="on">
+            <v-icon left>expand_more</v-icon>
+             <span>Dropdown</span>
+            </v-btn>
+        </template>
+        <v-list>
+          <v-list-item @click="dothis">
+            <v-list-item-title>Option 1</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="dothis">
+            <v-list-item-title>Option 2</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
 
     <v-content>
@@ -52,7 +77,16 @@
 </template>
 
 <script>
+import Popup from '@/components/Popup';
 export default {
+  components: {
+    Popup
+  },
+  methods: {
+    dothis() {
+      // do nothing
+    }
+  },
   data() {
     return {
       clipped: false,
