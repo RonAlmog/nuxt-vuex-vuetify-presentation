@@ -11,7 +11,7 @@ if (!firebase.apps.length) {
         appId: "1:1064046208194:web:c4219b74d534d0ab6f475b"
     }
     firebase.initializeApp(config)
-    firebase.firestore().settings({timestampsInSnapshots: true})
+    firebase.firestore().settings({})
 }
 const db = firebase.firestore()
 export {db}
