@@ -21,7 +21,7 @@
             min-width="290px"
           >
             <template v-slot:activator="{ on }">
-              <v-text-field v-model="due" label="Due Date" prepend-icon="event" readonly v-on="on" :rules="inputRules"></v-text-field>
+              <v-text-field v-model="due" label="Due Date" prepend-icon="event" readonly v-on="on" ></v-text-field>
             </template>
             <v-date-picker v-model="due" @input="menucal = false"></v-date-picker>
           </v-menu>
@@ -37,6 +37,7 @@
 
 <script>
 import format from 'date-fns/format'
+import {db} from '~/plugins/firebase.js'
 export default {
   data() {
     return {
@@ -52,7 +53,18 @@ export default {
   methods: {
     submitForm() {
         if (this.$refs.myform.validate()){
-            console.log('Submit', this.title)
+            const project = {
+                title: this.title,
+                person: 'moshe',
+                due: this.due,
+                content: this.content,
+                status: 'ongoing'
+            }
+            db.collection('projects').add(project)
+                .then(() => {
+                    console.log('Addeddddd');
+                })
+            
         }
     }
   },
