@@ -1,5 +1,9 @@
 <template>
   <v-app>
+    <v-snackbar v-model="snackbar" :timeout="4000" top color="success">
+      <span>Awsome, new project!!!</span>
+      <v-btn text color="white" @click="snackbar=false">Close</v-btn>
+    </v-snackbar>
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" :clipped="clipped" fixed app>
       <v-list>
         <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
@@ -14,7 +18,7 @@
 
       <v-row>
         <v-col cols="12" class="text-center my-3">
-          <Popup></Popup>
+          <Popup @projectAdded="snackbar=true"></Popup>
         </v-col>
       </v-row>
       
@@ -89,6 +93,7 @@ export default {
   },
   data() {
     return {
+      snackbar: false,
       clipped: false,
       drawer: false,
       fixed: false,

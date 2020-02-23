@@ -74,6 +74,7 @@ export default {
             console.log("Addeddddd");
             this.loading = false;
             this.dialog = false;
+            this.$emit('projectAdded');
           })
           .catch(err => {
             this.loading = false;
